@@ -1,0 +1,13 @@
+{
+  "name": "Skinny Barber",
+  "short_name": "Skinny Barber",
+  "description": "Barbershop premium a Brugherio (MB). Taglio, fade, barba e rasatura.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0a",
+  "theme_color": "#0a0a0a",
+  "icons": [
+    { "src": "/assets/favicon-192x192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "/assets/favicon-512x512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
+  xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+  xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+
+  <!-- ═══════════════════════════════════════════════════
+       HOME – Barbiere Brugherio | Priorità massima
+  ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.skinnybarber.it/</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Immagini principali per Google Image Search -->
+    <image:image>
+      <image:loc>https://www.skinnybarber.it/assets/gabbo.jpg</image:loc>
+      <image:title>Skinny Barber – Taglio fade uomo Brugherio (MB)</image:title>
+      <image:caption>Taglio capelli uomo con fade a Brugherio – Skinny Barber barbershop premium Via S. Maurizio Al Lambro 7</image:caption>
+      <image:geo_location>Brugherio, MB, Italia</image:geo_location>
+      <image:license>https://www.skinnybarber.it/</image:license>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.skinnybarber.it/assets/fol.jpg</image:loc>
+      <image:title>Barbiere uomo Brugherio – sfumatura e fade Skinny Barber</image:title>
+      <image:caption>Fade e sfumatura uomo eseguita da Gabriele e Pietro al Skinny Barber di Brugherio</image:caption>
+      <image:geo_location>Brugherio, MB, Italia</image:geo_location>
+      <image:license>https://www.skinnybarber.it/</image:license>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.skinnybarber.it/assets/folla.jpg</image:loc>
+      <image:title>Barber shop Brugherio – Skinny Barber barbershop premium</image:title>
+      <image:caption>Il barbershop di Brugherio per taglio capelli uomo, barba e rasatura classica</image:caption>
+      <image:geo_location>Brugherio, MB, Italia</image:geo_location>
+      <image:license>https://www.skinnybarber.it/</image:license>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://www.skinnybarber.it/assets/icon.jpg</image:loc>
+      <image:title>Logo Skinny Barber – Barbiere Brugherio</image:title>
+      <image:caption>Logo ufficiale Skinny Barber – barbershop premium a Brugherio (MB)</image:caption>
+      <image:geo_location>Brugherio, MB, Italia</image:geo_location>
+      <image:license>https://www.skinnybarber.it/</image:license>
+    </image:image>
+
+    <!-- Alternates lingua -->
+    <xhtml:link
+      rel="alternate"
+      hreflang="it"
+      href="https://www.skinnybarber.it/" />
+    <xhtml:link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://www.skinnybarber.it/" />
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       SEZIONE SERVIZI – anchor deep link
+  ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.skinnybarber.it/#servizi</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       SEZIONE GALLERY
+  ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.skinnybarber.it/#gallery</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.75</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       SEZIONE CHI SIAMO
+  ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.skinnybarber.it/#chi-siamo</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.70</priority>
+  </url>
+
+  <!-- ═══════════════════════════════════════════════════
+       SEZIONE POSIZIONE – massima importanza local SEO
+  ═══════════════════════════════════════════════════ -->
+  <url>
+    <loc>https://www.skinnybarber.it/#posizione</loc>
+    <lastmod>2025-06-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+
+</urlset>

@@ -1,0 +1,179 @@
+/* ================================================================
+   LOADER – video caricamento centrato, sfondo nero con marmo grigio
+   Il video è mostrato nelle sue dimensioni naturali (max 400px),
+   SENZA crop. Il resto dello schermo è nero con sfumature marmo.
+================================================================ */
+
+/* ── Overlay sfondo marmo ─────────────────────────────── */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-loader);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  /* Sfondo nero base */
+  background: #080808;
+
+  /* Sfumature marmo grigio – venature sottili su nero profondo */
+  background-image:
+    /* venature diagonali chiare */
+    repeating-linear-gradient(
+      118deg,
+      transparent 0px,
+      transparent 38px,
+      rgba(200,200,195,0.015) 38px,
+      rgba(200,200,195,0.015) 39px,
+      transparent 39px,
+      transparent 80px
+    ),
+    repeating-linear-gradient(
+      62deg,
+      transparent 0px,
+      transparent 55px,
+      rgba(180,180,175,0.012) 55px,
+      rgba(180,180,175,0.012) 56px,
+      transparent 56px,
+      transparent 110px
+    ),
+    /* sfumatura radiale centrale scura per far emergere il video */
+    radial-gradient(
+      ellipse 70% 70% at 50% 50%,
+      #0e0e0e 0%,
+      #080808 55%,
+      #060606 100%
+    );
+}
+
+/* Vignettatura pesante ai bordi per concentrare l'occhio al centro */
+#loader::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 88% 88% at 50% 50%,
+      transparent 40%,
+      rgba(4,4,4,0.72) 75%,
+      rgba(2,2,2,0.96) 100%
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Sfumatura angoli tipo marmo scuro */
+#loader::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(135deg, rgba(30,28,26,0.25) 0%, transparent 40%),
+    linear-gradient(315deg, rgba(25,23,21,0.22) 0%, transparent 40%),
+    linear-gradient(225deg, rgba(28,26,24,0.18) 0%, transparent 35%),
+    linear-gradient(45deg,  rgba(22,20,18,0.20) 0%, transparent 35%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Inner container centrato ────────────────────────── */
+.loader-inner {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+}
+
+/* ── Video – nessun crop, dimensioni naturali ─────────── */
+#loader-video {
+  /* Mostra video nella sua dimensione nativa, max 400px lato */
+  width:  min(400px, 78vmin);
+  height: min(400px, 78vmin); /* quadrato nativo 768×768 */
+  object-fit: contain;        /* NO CROP – letterbox se serve */
+  border-radius: 2px;
+
+  /* Alone verde sottile */
+  box-shadow:
+    0 0 0 1px rgba(74,124,89,0.08),
+    0 0 60px rgba(74,124,89,0.12),
+    0 0 120px rgba(74,124,89,0.06);
+
+  opacity: 0;
+  animation: loaderVideoIn 0.55s cubic-bezier(0.22,1,0.36,1) 0.15s forwards;
+}
+
+@keyframes loaderVideoIn {
+  from { opacity: 0; transform: scale(0.94); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ── Brand text sotto il video ───────────────────────── */
+.loader-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 4vw, 2.2rem);
+  letter-spacing: 0.2em;
+  color: var(--clr-white);
+  opacity: 0;
+  animation: loaderTextIn 0.55s cubic-bezier(0.22,1,0.36,1) 0.45s forwards;
+}
+
+.loader-name {
+  color: rgba(245,244,240,0.88);
+}
+
+@keyframes loaderTextIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.loader-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--clr-green);
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: dotPulse 1.8s ease infinite 1s;
+}
+
+@keyframes dotPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50%       { transform: scale(1.6); opacity: 0.55; }
+}
+
+/* ── Progress bar ────────────────────────────────────── */
+.loader-bar-wrap {
+  width: min(260px, 60vw);
+  height: 1px;
+  background: rgba(245,244,240,0.08);
+  border-radius: 1px;
+  overflow: hidden;
+  opacity: 0;
+  animation: loaderTextIn 0.4s ease 0.65s forwards;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--clr-green-d), var(--clr-green-l));
+  border-radius: 1px;
+  transition: width 0.12s linear;
+}
+
+/* ── Exit animation ──────────────────────────────────── */
+#loader.exit {
+  animation: loaderExit 0.85s cubic-bezier(0.25,0.46,0.45,0.94) forwards;
+  pointer-events: none;
+}
+
+@keyframes loaderExit {
+  0%   { opacity: 1; clip-path: inset(0 0 0 0); }
+  65%  { opacity: 1; }
+  100% { opacity: 0; clip-path: inset(0 0 100% 0); }
+}

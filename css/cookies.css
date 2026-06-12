@@ -1,0 +1,358 @@
+/* ================================================================
+   cookies.css – Cookie banner + Privacy/Cookie Policy modal
+   Design abbinato: marmo grigio, accenti oro e verde
+================================================================ */
+
+/* ── COOKIE BANNER ───────────────────────────────────── */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 8000;
+  padding: 0;
+  transform: translateY(100%);
+  transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.cookie-banner.visible {
+  transform: translateY(0);
+}
+
+/* Lastra marmo grigio – identica al sito */
+.cookie-marble {
+  position: absolute;
+  inset: 0;
+  background:
+    repeating-linear-gradient(112deg, transparent 0px, transparent 28px, rgba(255,255,255,0.04) 28px, rgba(255,255,255,0.04) 29px, transparent 29px, transparent 80px),
+    repeating-linear-gradient(58deg, transparent 0px, transparent 50px, rgba(255,255,255,0.028) 50px, rgba(255,255,255,0.028) 51px, transparent 51px, transparent 120px),
+    repeating-linear-gradient(78deg, transparent 0px, transparent 140px, rgba(201,169,110,0.025) 140px, rgba(201,169,110,0.025) 141px, transparent 141px, transparent 280px),
+    repeating-linear-gradient(104deg, transparent 0px, transparent 70px, rgba(0,0,0,0.055) 70px, rgba(0,0,0,0.055) 71px, transparent 71px, transparent 160px),
+    radial-gradient(ellipse 80% 200% at 20% 50%, rgba(255,255,255,0.04) 0%, transparent 60%),
+    #232321;
+  border-top: 1px solid rgba(201,169,110,0.22);
+  z-index: 0;
+}
+
+/* Gold top line accent */
+.cookie-marble::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--clr-gold) 30%, var(--clr-green) 70%, transparent 100%);
+  opacity: 0.55;
+}
+
+.cookie-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: clamp(16px, 3vw, 36px);
+  padding: clamp(18px, 3vw, 26px) clamp(20px, 5vw, 80px);
+  flex-wrap: wrap;
+}
+
+.cookie-logo {
+  flex-shrink: 0;
+  width: 10px;
+  height: 10px;
+  display: flex;
+  align-items: center;
+}
+.cookie-logo .nav-logo-dot {
+  width: 10px;
+  height: 10px;
+  animation: pulse 2s ease infinite;
+}
+
+.cookie-text {
+  flex: 1;
+  min-width: 220px;
+}
+
+.cookie-title {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  letter-spacing: 0.14em;
+  color: var(--clr-white);
+  margin-bottom: 6px;
+}
+
+.cookie-text p:last-child {
+  font-size: 0.8rem;
+  color: rgba(245,244,240,0.5);
+  line-height: 1.6;
+}
+
+.cookie-link {
+  background: none;
+  border: none;
+  color: var(--clr-gold);
+  font-size: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-decoration: underline;
+  text-decoration-color: rgba(201,169,110,0.4);
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+  font-family: inherit;
+}
+.cookie-link:hover { color: var(--clr-gold-d); }
+
+.cookie-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+
+.cookie-btn {
+  padding: 11px 24px;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: all 0.22s var(--ease-spring);
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.cookie-btn--outline {
+  background: transparent;
+  border: 1px solid rgba(245,244,240,0.2);
+  color: rgba(245,244,240,0.6);
+}
+.cookie-btn--outline:hover {
+  border-color: rgba(245,244,240,0.45);
+  color: var(--clr-white);
+  transform: translateY(-1px);
+}
+
+.cookie-btn--primary {
+  background: var(--clr-green);
+  border: 1px solid transparent;
+  color: var(--clr-white);
+}
+.cookie-btn--primary:hover {
+  background: var(--clr-green-l);
+  transform: translateY(-1px);
+}
+
+.cookie-btn:focus-visible {
+  outline: 2px solid var(--clr-gold);
+  outline-offset: 3px;
+}
+
+/* ── FOOTER LEGAL LINKS ──────────────────────────────── */
+.footer-legal {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.footer-legal span {
+  color: rgba(245,244,240,0.15);
+  font-size: 0.7rem;
+}
+
+.footer-policy-link {
+  background: none;
+  border: none;
+  color: rgba(245,244,240,0.28);
+  font-family: var(--font-body);
+  font-size: 0.73rem;
+  letter-spacing: 0.06em;
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.2s;
+}
+.footer-policy-link:hover { color: var(--clr-gold); }
+.footer-policy-link:focus-visible {
+  outline: 2px solid var(--clr-gold);
+  outline-offset: 2px;
+  border-radius: 1px;
+}
+
+/* ── POLICY MODAL ────────────────────────────────────── */
+.policy-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.policy-modal[hidden] { display: none; }
+
+.policy-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(6, 6, 6, 0.88);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  cursor: pointer;
+  animation: backdropIn 0.3s ease forwards;
+}
+@keyframes backdropIn {
+  from { opacity: 0; } to { opacity: 1; }
+}
+
+.policy-box {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 680px;
+  max-height: 80vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-sm);
+  animation: modalIn 0.38s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  /* Lastra marmo */
+  background:
+    repeating-linear-gradient(112deg, transparent 0px, transparent 28px, rgba(255,255,255,0.04) 28px, rgba(255,255,255,0.04) 29px, transparent 29px, transparent 80px),
+    repeating-linear-gradient(78deg, transparent 0px, transparent 140px, rgba(201,169,110,0.022) 140px, rgba(201,169,110,0.022) 141px, transparent 141px, transparent 280px),
+    repeating-linear-gradient(104deg, transparent 0px, transparent 70px, rgba(0,0,0,0.06) 70px, rgba(0,0,0,0.06) 71px, transparent 71px, transparent 160px),
+    radial-gradient(ellipse 80% 70% at 25% 30%, rgba(255,255,255,0.045) 0%, transparent 65%),
+    #252523;
+  border: 1px solid rgba(201,169,110,0.18);
+  box-shadow:
+    0 0 0 1px rgba(74,124,89,0.08),
+    0 32px 80px rgba(0,0,0,0.7),
+    0 0 120px rgba(201,169,110,0.04);
+}
+
+/* Gold top accent */
+.policy-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--clr-gold) 40%, var(--clr-green) 70%, transparent);
+  opacity: 0.6;
+  z-index: 2;
+}
+
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.policy-close {
+  position: absolute;
+  top: 16px; right: 16px;
+  width: 36px; height: 36px;
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: var(--radius-sm);
+  color: rgba(245,244,240,0.6);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, color 0.2s;
+  z-index: 3;
+  flex-shrink: 0;
+}
+.policy-close:hover {
+  background: rgba(201,169,110,0.12);
+  color: var(--clr-gold);
+  border-color: rgba(201,169,110,0.3);
+}
+.policy-close:focus-visible {
+  outline: 2px solid var(--clr-gold);
+  outline-offset: 2px;
+}
+
+.policy-content {
+  overflow-y: auto;
+  padding: clamp(28px, 4vw, 48px);
+  padding-top: clamp(32px, 4vw, 48px);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(201,169,110,0.25) transparent;
+}
+.policy-content::-webkit-scrollbar { width: 4px; }
+.policy-content::-webkit-scrollbar-track { background: transparent; }
+.policy-content::-webkit-scrollbar-thumb {
+  background: rgba(201,169,110,0.25);
+  border-radius: 2px;
+}
+
+/* Typography inside modal */
+.policy-content h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 4vw, 2.4rem);
+  letter-spacing: 0.06em;
+  color: var(--clr-white);
+  margin-bottom: 6px;
+}
+.policy-content .policy-meta {
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-gold);
+  margin-bottom: 28px;
+  display: block;
+}
+.policy-content h3 {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  letter-spacing: 0.08em;
+  color: var(--clr-white);
+  margin: 28px 0 10px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(201,169,110,0.15);
+}
+.policy-content p,
+.policy-content li {
+  font-size: 0.85rem;
+  color: rgba(245,244,240,0.55);
+  line-height: 1.78;
+  margin-bottom: 10px;
+}
+.policy-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+.policy-content li::before {
+  content: '—';
+  color: var(--clr-green);
+  margin-right: 10px;
+  font-size: 0.75rem;
+}
+.policy-content a {
+  color: var(--clr-gold);
+  text-decoration: underline;
+  text-decoration-color: rgba(201,169,110,0.35);
+  text-underline-offset: 2px;
+  transition: color 0.2s;
+}
+.policy-content a:hover { color: var(--clr-gold-d); }
+.policy-content strong { color: rgba(245,244,240,0.8); font-weight: 500; }
+
+/* Mobile */
+@media (max-width: 640px) {
+  .cookie-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .cookie-actions {
+    width: 100%;
+  }
+  .cookie-btn {
+    flex: 1;
+    text-align: center;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    gap: 8px;
+  }
+}

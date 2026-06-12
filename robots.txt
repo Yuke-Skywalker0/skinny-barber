@@ -1,0 +1,42 @@
+# robots.txt – Skinny Barber | skinnybarber.it
+# Barbiere Brugherio (MB) – Local SEO ottimizzato
+
+User-agent: *
+Allow: /
+
+# Blocca risorse non indicizzabili
+Disallow: /assets/
+Disallow: /css/
+Disallow: /js/
+
+# Evita duplicati con parametri UTM o query string
+Disallow: /*?utm_*
+Disallow: /*?ref=*
+Disallow: /*?fbclid=*
+Disallow: /*?gclid=*
+
+# Sitemap
+Sitemap: https://www.skinnybarber.it/sitemap.xml
+
+# Google Bot – crawl rate consigliato
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+# Bing
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 2
+
+# Blocco bot inutili / scraper
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
