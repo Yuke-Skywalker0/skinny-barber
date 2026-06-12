@@ -1,4 +1,4 @@
-# robots.txt – Skinny Barber | skinnybarber.it
+# robots.txt – Skinny Barber | yuke-skywalker0.github.io/skinny-barber
 # Barbiere Brugherio (MB) – Local SEO ottimizzato
 
 User-agent: *
@@ -16,8 +16,7 @@ Disallow: /*?fbclid=*
 Disallow: /*?gclid=*
 
 # Sitemap
-# Sitemap: https://www.skinnybarber.it/sitemap.xml
- Sitemap: https://yuke-skywalker0.github.io/skinny-barber/sitemap.xml
+Sitemap: https://yuke-skywalker0.github.io/skinny-barber/sitemap.xml
 
 # Google Bot – crawl rate consigliato
 User-agent: Googlebot
