@@ -16,7 +16,8 @@ Disallow: /*?fbclid=*
 Disallow: /*?gclid=*
 
 # Sitemap
-Sitemap: https://www.skinnybarber.it/sitemap.xml
+# Sitemap: https://www.skinnybarber.it/sitemap.xml
+ Sitemap: https://yuke-skywalker0.github.io/skinny-barber/sitemap.xml
 
 # Google Bot – crawl rate consigliato
 User-agent: Googlebot
